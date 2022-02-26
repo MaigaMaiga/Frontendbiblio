@@ -1,0 +1,41 @@
+<ion-header>
+ 
+</ion-header>
+
+<ion-content>
+
+  
+  
+    <form action=""class="form" >
+      <ion-list  class="list">
+        <div class="inputDiv">
+          <ion-label class="label">Nom : </ion-label>
+          <input class="input" name="nom" type="text" [(ngModel)]="nom">
+        </div>
+        <div class="inputDiv">
+          <ion-label class="label">Prenom : </ion-label>
+          <input name="prenom"  type="text" [(ngModel)]="prenom"  class="input">
+        </div>
+        <div class="inputDiv">
+          <ion-label class="label">Email :</ion-label>
+          <input name="email" type="email" [(ngModel)]="email"  class="input">
+        </div>
+        <div class="inputDiv">
+          <ion-label class="label">Identifiant : </ion-label>
+          <input name="identifiant" type="text" [(ngModel)]="identifiant" class="input">
+        </div>
+        <div class="inputDiv">
+          <ion-label class="label">Mot de passe : </ion-label>
+          <input name="password" type="password" [(ngModel)]="password" class="input">
+        </div>
+        <div class="inputDiv">
+          <ion-label class="label">Confirmer : </ion-label>
+          <input name="confirmPassword" type="password" [(ngModel)]="confirmPassword" class="input">
+        </div>
+        <div class="inputDiv"><br>
+      <ion-button  expand="block" (click)="inscription()" shape="round">S'inscrire</ion-button>
+      </div>
+      </ion-list>
+    </form>
+        
+</ion-content>

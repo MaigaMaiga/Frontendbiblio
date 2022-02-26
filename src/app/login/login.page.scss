@@ -1,0 +1,65 @@
+
+ion-content {
+    --background: url('../../assets/Images/login 1.png')  0 0/94%  no-repeat !important;
+    background-color: #fff;
+}
+
+.form{
+    margin-top: 120%;
+    
+    background-color: rgba(16, 97, 70, 0);
+}
+
+.list{background-color: rgba(127, 255, 212, 0);}
+.label{font-size: 12px ; 
+    color: black;
+    text-align: end;
+    width: 50px;
+    margin-right: 4px;
+    font-weight: bold;
+    font-style: italic;
+}
+.inputDiv{
+    margin: 4%;
+    text-align: end;
+}
+.input{
+    width: 65%; 
+    float: right; 
+    border-radius: 50px; 
+    color: black; 
+    background-color: white;
+    font-style: italic;
+}
+.forgotDiv{
+    margin: 6%;
+    margin-right: 0%;
+    text-align: center;
+}
+.forgot{
+    color: black; 
+    font-size: 10px;
+    text-decoration: none;
+}
+.button{
+    width: 90%;
+    height: 25px;
+    margin: auto;
+    margin-top: 4%;
+    margin-left: 5%;
+    font-size: 80%;
+    justify-content: center;
+}
+.buttonL{
+    width: 60%;
+    height: 25px;
+    margin: auto;
+    margin-top: 4%;
+    margin-left: 20%;
+    font-size: 80%;
+    justify-content: center;
+}
+
+.contentButton{
+    margin-top: 4px;
+}

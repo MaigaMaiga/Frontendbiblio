@@ -1,0 +1,32 @@
+<ion-header>
+
+</ion-header>
+<ion-content  >
+  
+  
+<form action="" class="form" >
+  <ion-list class="list">
+    
+    <div class="inputDiv">
+      <ion-label class="label">Identidiant:</ion-label>
+      <input class="input" name="identifiant" type="email" [(ngModel)]="identifiant">
+    </div>
+    <div class="inputDiv">
+      <ion-label  class="label">Mot de passe:</ion-label>
+      <input class="input" name="password" type="password" [(ngModel)]="password" >
+    </div>
+    <div class="contentButton">
+    <div class="button">
+        <ion-button   (click)="login()" shape="round">Se connecter</ion-button>
+    </div>
+  <div class="forgotDiv" >
+     <a class="forgot" href="password" type="" >Mot de passe oublier</a>
+    </div>
+  
+  <div class="buttonL">
+    <ion-button type="text" routerLink="/inscription" shape="round">Creer compte</ion-button>
+  </div>
+</div>
+  </ion-list>
+</form>
+</ion-content>

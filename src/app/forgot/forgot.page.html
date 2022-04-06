@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/login">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Réinitialisé le mot de passe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<p class="ion-text-center" style="padding: 10px;">Veillez inserer votre email pour reinitialiser le mot de passe</p>
+<form action="" class="form" >
+  <ion-item>
+    <ion-input placeholder="email" name="email" type="email" [(ngModel)]="email">
+     <ion-icon name="mail-outline"></ion-icon>
+
+   </ion-input>
+ </ion-item>
+ <div class="logButton">
+  <ion-button   (click)="reset()" shape="round" class="but">Envoyer</ion-button>
+</div>
+</form>
+</ion-content>

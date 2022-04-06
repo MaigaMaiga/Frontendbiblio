@@ -1,0 +1,31 @@
+button{
+    background-color:transparent;
+    padding-left: 3px;
+    font-size: 14px;
+    font-weight: 600px;
+    color:#6a9bff;
+}
+.logButton{
+    margin-top: 20%;
+    text-align: center;
+    .but{
+        --ion-background-color:#6a9bff;
+
+        text-transform: initial;
+    }
+}
+
+ion-item{
+    margin-top: 20%;
+    //  --border-color:
+      --highlight-color-focued:red;
+      font-size: 12px;
+  ion-icon{
+      padding-right: 10px;
+      font-size: 18px;
+  }
+  ion-input:hover{
+      color: #6a9bff;
+  }
+  
+  }

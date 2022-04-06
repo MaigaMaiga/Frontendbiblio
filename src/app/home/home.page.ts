@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { ServiceService } from './../service.service';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { IonSlides, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,36 +13,42 @@ export class HomePage {
   @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
 
   sliderOne: any;
-  
+  livre: any;
+  photo: any;
+  slideImg: any;
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
-    autoplay: true
+    autoplay: true,
+
   };
-  constructor() {
+  constructor(
+    private service: ServiceService,
+    private popctrl: PopoverController
+  ) {
+    this.photo = this.service.img;
     this.sliderOne =
     {
       isBeginningSlide: true,
       isEndSlide: false,
-      slidesItems: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        },
-        {
-          id: 3
-        },
-        {
-          id: 4
-        },
-        {
-          id: 5
-        }
-      ]
+      slidesItems : this.livre,
+
     };
+
   }
+ngOnInit() {
+
+  this.slideImg=["ncov4.jpg","bibn.png","vbiblio.png"];
+  this.service.listLivre().subscribe((response:any)=>{
+    this.livre = response;
+  })
+  console.log(this.photo);
+
+  console.log(this.livre);
+
+
+}
+
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {
@@ -61,7 +68,7 @@ export class HomePage {
     this.checkIfNavDisabled(object, slideView);
   }
 
-  //Call methods to check if slide is first or last to enable disbale navigation  
+  //Call methods to check if slide is first or last to enable disbale navigation
   checkIfNavDisabled(object, slideView) {
     this.checkisBeginning(object, slideView);
     this.checkisEnd(object, slideView);
@@ -77,6 +84,11 @@ export class HomePage {
       object.isEndSlide = istrue;
     });
   }
+
+getAllbook(){
+
+
+}
 
 
 }

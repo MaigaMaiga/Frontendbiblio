@@ -1,0 +1,36 @@
+ion-content {
+  --background: rgba(0, 0, 0, 0.270588) !important;
+}
+.container {
+  background-color: white;
+  color: black;
+}
+.title {
+  padding-left: 10px;
+}
+.removePhoto {
+  height: 45px;
+  width: 45px;
+  background-color: #e74d33;
+  border-radius: 22px;
+  margin: 0 auto;
+}
+.icon {
+  padding-top: 10px;
+  font-size: 24px;
+  color: white;
+}
+.galleryPhoto {
+  height: 45px;
+  width: 45px;
+  background-color: #6f2a89;
+  border-radius: 22px;
+  margin: 0 auto;
+}
+.cameraPhoto {
+  height: 45px;
+  width: 45px;
+  background-color: #92c45a;
+  border-radius: 22px;
+  margin: 0 auto;
+}

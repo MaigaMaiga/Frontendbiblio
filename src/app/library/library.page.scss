@@ -1,0 +1,31 @@
+.library{
+
+
+  background-attachment: fixed;
+  background-color: #f6f6f6;
+  background-size:cover;
+  
+   margin: 1px;
+    width: 100%;
+   height: 150px;
+   box-shadow:12;
+   elevation : -45deg;
+
+}
+
+ion-content{
+  --background:rgb(188, 200, 255);
+
+
+
+}
+.slide-text{
+
+  color: rgb(0, 0, 0);
+  bottom: 30px;
+  background-color: #a6c4ff;
+  border-radius: 10px;
+  background-position: 20%;
+    margin-top: 3%;
+  z-index: 9;
+}

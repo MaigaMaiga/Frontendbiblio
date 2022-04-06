@@ -1,0 +1,38 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title> Documents</ion-title>
+  <ion-buttons slot="end">
+    <ion-button >
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+<ion-segment (ionChange)="segmentChange($event)">
+  <ion-segment-button value="article">
+    <ion-label>Articles</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="memoire">
+    <ion-label>Mémoires</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+
+<ion-list *ngIf="type==='article'">
+<ion-item detail *ngFor="let article of articles" routerLink="/ebookvue/{{article?.idLivre}}">
+  <ion-img slot="start" src="../../assets/Images/pdf.png" style="width: 15%;"></ion-img>
+  <ion-label>{{article.titre}}</ion-label>
+</ion-item>
+</ion-list>
+<ion-list *ngIf="type==='memoire'">
+<ion-item detail *ngFor="let memoire of memoires" routerLink="/ebookvue/{{memoire?.idLivre}}">
+  <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
+  <ion-label>
+   <h6> {{memoire.titre}} <small>{{memoire.category.category}}</small> </h6>
+  </ion-label>
+</ion-item>
+</ion-list>
+</ion-content>

@@ -1,43 +1,41 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { DetailPage } from './../detail/detail.page';
+import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, IonSlides } from '@ionic/angular';
+import { AlertController, IonSlides, ModalController, PopoverController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
+import { DetailLivrePage } from '../detail-livre/detail-livre.page';
 
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-livre',
   templateUrl: './livre.page.html',
   styleUrls: ['./livre.page.scss'],
 })
 export class LivrePage implements OnInit {
-
-  @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
   @ViewChild('slideWithNav2', { static: false }) slideWithNav2: IonSlides;
-  @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
-
-  sliderOne: any;
   sliderTwo: any;
-  sliderThree: any;
 
-  listLivre: any;
+  livrefile: any;
+  photo: any;
+  listLivre: any[] = [];
   format: any;
-  detail: any;
-//slider config
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay: true
-  };
+  idLivre: any;
+  slideImg: any;
+  filterTerm: any;
+  category: any;
+
   slideOptsTwo = {
     initialSlide: 1,
-    slidesPerView: 2,
-    loop: true,
-    centeredSlides: true,
-
-  };
-  slideOptsThree = {
-    initialSlide: 0,
-    slidesPerView: 3,
-    spaceBetween: 5
+    slidesPerView: 2.2,
+    spaceBetween: 2,
+    // speed:400,
+    //loop: true,
+    //centeredSlides: true,
+    // autoplay:{
+    //   delay:2000,
+    // }
 
   };
 
@@ -46,104 +44,19 @@ export class LivrePage implements OnInit {
     private service: ServiceService,
     private route: ActivatedRoute,
     public alert: AlertController,
-    private router: Router
+    private router: Router,
+    private popCtrl: PopoverController,
+    private modalctrl: ModalController
 
-  ) {
-    this.sliderOne =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 995
-        },
-        {
-          id: 925
-        },
-        {
-          id: 940
-        },
-        {
-          id: 943
-        },
-        {
-          id: 944
-        }
-      ]
-    };
-    //Item object for Food
-    this.sliderTwo =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 324
-        },
-        {
-          id: 321
-        },
-        {
-          id: 435
-        },
-        {
-          id: 524
-        },
-        {
-          id: 235
-        }
-      ]
-    };
-    //Item object for Fashion
-    this.sliderThree =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 643
-        },
-        {
-          id: 532
-        },
-        {
-          id: 232
-        },
-        {
-          id: 874
-        },
-        {
-          id: 193
-        }
-      ]
-    };
+  ) {}
 
-  }
-  //Move to Next slide
-  slideNext(object, slideView) {
-    slideView.slideNext(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });
-  }
-
-  //Move to previous slide
-  slidePrev(object, slideView) {
-    slideView.slidePrev(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });;
-  }
-
-  //Method called when slide is changed by drag or navigation
   slideDidChange(object, slideView) {
     this.checkIfNavDisabled(object, slideView);
   }
-
-  //Call methods to check if slide is first or last to enable disbale navigation
   checkIfNavDisabled(object, slideView) {
     this.checkisBeginning(object, slideView);
     this.checkisEnd(object, slideView);
   }
-
   checkisBeginning(object, slideView) {
     slideView.isBeginning().then((istrue) => {
       object.isBeginningSlide = istrue;
@@ -153,63 +66,66 @@ export class LivrePage implements OnInit {
     slideView.isEnd().then((istrue) => {
       object.isEndSlide = istrue;
     });
-
   }
 
+   // eslint-disable-next-line @angular-eslint/contextual-lifecycle
+   ngOnInit() {
 
+    this.slideImg=[
+      {
+        img:'ncov0.jpg',
+        text:'Des livre en abondance',
+      },
+      {
+        img:'ncov1.jpg',
+        text:'Découvrer facilement des meilleurs livre',
+      },
+      {
+        img:'cover4.png',
+        text:'lire partout où vous voulez',
+      },
 
+    ];
 
-
-
-
-
-  ngOnInit() {
-    this.livrebyformat( this.route.snapshot.params.format);
+    this.livrebyformat(this.route.snapshot.params.format);
     this.format = this.route.snapshot.params.format;
-    console.log('ok'+this.format);
+    this.livrefile = this.service.livrefile;
+    this.photo = this.service.img;
+    this.allCategory();
+
 
   }
 
+  //content of popover
+  async detailLivre(idLivre: any ) {
 
+    const modal = await this.modalctrl.create({
+      component: DetailLivrePage,
+      cssClass:'popoverCss',
+      componentProps: {
+        idLivre,
+      },
+    });
+    return modal.present();
+  }
 
-  livrebyformat(format: string){
-
-    this.service.listLivre(format).subscribe((data)=>{
+  //end popover
+  livrebyformat(format: string) {
+    this.service.livreByFormatNotDeleted(format, false).subscribe((data: any) => {
       this.listLivre = data;
-      console.log('content'+ this.listLivre);
+
+      console.log('Tous les livres ' + JSON.stringify(this.listLivre));
+    });
+  }
+  allCategory(){
+    this.service.getAllcategory(false).subscribe((data)=>{
+      this.category = data;
+      console.log('toutes les category '+ JSON.stringify(this.category));
     });
   }
 
-    async showLivre(id: number) {
-      this.service.livreById(id).subscribe((data)=>{
-        this.detail = data;
+  tousLivre(){
+    console.log('ok');
 
-      });
-
-      const alert = await this.alert.create({
-
-        cssClass: 'my-custom-class',
-        message: '<img src="../../assets/Images/livre1.jpg" style="width:210px;height:200px;">'+this.detail.titre,
-        buttons: [
-          {
-            text: 'Lire',
-            role: 'cancel',
-            cssClass: 'secondary',
-            id: 'show-button',
-            handler: (blah) => {
-              this.router.navigateByUrl('/home/'+this.detail.idLivre);
-            }
-          }, {
-            text: 'Detail',
-            id: 'detail-button',
-            handler: () => {
-              this.router.navigateByUrl('/pdfviewer');
-            }
-          }
-        ]
-      });
-      await alert.present();
-
-    }
-
+  }
 }

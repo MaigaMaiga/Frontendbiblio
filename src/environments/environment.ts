@@ -3,7 +3,34 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  socialShareOption: [
+    {
+        title: 'Whatsapp',
+        logo: 'assets/icon/whatsapp.png',
+        shareType: 'shareViaWhatsApp'
+    },
+    {
+        title: 'Facebook',
+        logo: 'assets/icon/facebook.png',
+        shareType: 'shareViaFacebook'
+    },
+    {
+        title: 'Twitter',
+        logo: 'assets/icon/twitter.png',
+        shareType: 'shareViaTwitter'
+    },
+    // {
+    //     title: 'Linkedin',
+    //     logo: 'assets/icon/linkedin.png',
+    //     shareType: 'shareViaLinkedin'
+    // },
+    {
+        title: 'Email',
+        logo: 'assets/icon/gmail.png',
+        shareType: 'viaEmail'
+    }
+],
 };
 
 /*

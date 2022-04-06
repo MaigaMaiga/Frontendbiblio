@@ -1,0 +1,15 @@
+
+
+<ion-content>
+<ion-item>
+  <ion-input [(ngModel)]="lastpass" placeholder="Ancien Mot de passe"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input [(ngModel)]="newpass" placeholder="Nouveau Mot de passe"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input [(ngModel)]="confirmnewpass" placeholder="Confirmer Mot de passe"></ion-input>
+</ion-item>
+<ion-button (click)="update()">Valider</ion-button>
+<ion-button>Annuler</ion-button>
+</ion-content>

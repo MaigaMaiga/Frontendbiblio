@@ -1,0 +1,26 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center"> <small>{{livre?.titre}}</small> </ion-title>
+  <ion-buttons *ngIf="livre?.prix === 0" slot="end" style="margin-right:5%;" (click)="download()">
+    <ion-icon slot="icon-only"  name="download-outline" style="zoom: 0.8;">
+    </ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content [fullscreen]="true" >
+
+  <pdf-viewer [src]="pdfSrc"
+              [render-text]="false"
+              [original-size]="false"
+              [zoom]="zoom"
+              style="width: 100%; height: 500px"
+
+  ></pdf-viewer>
+  <div style="margin-left: 35%; ">
+  <a style="margin: 3%;" (click)="zoomOut()" ><ion-icon style="zoom: 1.5;" name="remove-circle-outline"></ion-icon> </a>
+  <!-- <a class="mx-2" (click)=" zoomD()"><ion-icon style="zoom: 1.5;" name="refresh-outline"></ion-icon></a> -->
+  <a style="margin: 3%;" (click)=" zoomIn()"><ion-icon style="zoom: 1.5;" name="add-circle-outline"></ion-icon></a>
+  <!-- <a class="mx-2" *ngIf="" (click)=" download()"><i class="fa fa-download"></i></a> -->
+</div>
+</ion-content>

@@ -1,9 +1,9 @@
 ion-content{
-    --ion-background-color: #333333;
+    --ion-background-color:rgb(188, 200, 255);
   }
   .img_box {
-    padding: 20px;
-    background-color: #1d1d1d;
+    padding: 10px;
+    background-color: #e4e4e43d;
 }
 
 #container {
@@ -11,12 +11,12 @@ ion-content{
     padding: 20px;
   }
   h2 {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     margin: 2px 0px;
   }
   ion-range {
-    padding: 0px 10px;
+    padding: 5px 5px;
     --bar-height: 3px;
   }
   p {
@@ -37,3 +37,7 @@ ion-content{
     margin: 0px 7px;
     font-size: 21px;
   }
+.imgLivre{
+  width: 100px;
+  height: 100px;
+}

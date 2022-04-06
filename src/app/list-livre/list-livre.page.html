@@ -1,0 +1,67 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Virtual Biblio </ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+<div style="background-color:rgb(188, 200, 255) ;">
+<div style=" border-radius: 0 0 40px 40px; margin: 0%;"><h6 style="font-weight: 400;padding: 3px; text-align: center; color: rgb(0, 0, 0); "> {{format}} / {{category?.category}}</h6>
+  <!-- <hr color="#6A9BFF" width="40%" style="margin-inline-start: 2%; height: 3px;"> -->
+</div>
+</div>
+<ion-content>
+
+
+
+<div class="container">
+
+
+
+  <ion-item lines="none" *ngFor="let livre of listlivre |filter: filterTerm" (click)="detailLivre(livre.idLivre)">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4">
+
+          <img src="{{photo}}{{livre.idLivre}}" alt="image du livre" style="height: 50px;">
+
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>
+            <h4>{{livre.titre}}</h4>
+            <h6>{{livre.auteur}}</h6>
+            <small  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 10px; "><ion-badge *ngIf="livre.prix >0" style="width: 80%; opacity: 0.9;"  color="primary" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
+            <small *ngIf="livre.prix ===0" style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 10px; opacity: 0.8;"><ion-badge color="primary" mode="ios">Gratuit</ion-badge></small>
+            <div style="margin: auto;opacity: 0.9; width: 90%; ">
+              <span *ngIf="livre?.note >=1" >
+                <ion-icon name="star" class="rateIcon" ></ion-icon>
+              </span>
+              <span *ngIf="livre?.note >=2">
+                <ion-icon name="star" class="rateIcon"  ></ion-icon>
+              </span>
+              <span *ngIf="livre?.note >=3">
+                <ion-icon name="star" class="rateIcon" ></ion-icon>
+              </span>
+              <span *ngIf="livre?.note >=4">
+                <ion-icon name="star" class="rateIcon" ></ion-icon>
+              </span>
+              <span *ngIf="livre?.note >=5">
+                <ion-icon name="star" class="rateIcon" ></ion-icon>
+              </span>
+            </div>
+          </ion-label>
+        </ion-col>
+        <!-- <ion-col size="1">
+          <ion-button color="light" fill="clear">
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+</div>
+
+</ion-content>

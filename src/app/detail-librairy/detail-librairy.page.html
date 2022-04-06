@@ -1,0 +1,67 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Librairies </ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+<div class="head">
+  <div class="libInfo ion-margin-bottom">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="5">
+          <img src="{{lib}}{{librairy?.idLibrairy}}" alt="">
+        </ion-col>
+        <ion-col size="7" style="padding-top: 30px;">
+          <ion-row>
+            {{librairy?.nom}}
+          </ion-row>
+          <ion-row style="padding: 5% 0;">
+            <ion-icon name="call-outline" style="color: black; margin-right: 5%;"></ion-icon>
+           <a href="{{librairy?.telephone}}"  style="text-decoration: none;" > {{librairy?.telephone}}</a>
+          </ion-row>
+          <ion-row>
+            <ion-icon name="home-outline" style="color: black; margin-right: 5%;"></ion-icon>
+            {{librairy?.adresse}}
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
+<ion-content>
+
+
+
+  <div class="container">
+
+
+
+    <ion-item lines="none" *ngFor="let l of livre" (click)="detailLivre(l.idLivre)">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="4">
+
+            <img src="{{image}}{{l.idLivre}}" alt="image du livre" style="height: 50px;">
+
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>
+              <h4>{{l.titre}}</h4>
+              <h6>{{l.auteur}}</h6>
+            </ion-label>
+          </ion-col>
+          <!-- <ion-col size="1">
+            <ion-button color="light" fill="clear">
+              <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </ion-col> -->
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </div>
+
+</ion-content>

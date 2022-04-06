@@ -1,8 +1,9 @@
+
 ion-title{
     text-align: center;
   }
   ion-content{
-   
+background-color: rgb(188, 200, 255);
       // overwrite inline styles
   --offset-bottom: auto!important;
   --overflow: hidden;
@@ -11,12 +12,12 @@ ion-title{
     display: none;
   }
 }
-  // Slider Style START 
+  // Slider Style START
   .custon-nav{
     height: 48px;
     width: 20px;
     cursor: pointer;
-  
+
     vertical-align: middle;
     text-align: left;
     position: absolute;
@@ -42,26 +43,17 @@ ion-title{
         height: 100%;
     }
   }
-  
+
   .slide-text{
     position: absolute;
     color: white;
     bottom: 30px;
   }
-  ion-searchbar {
-    --icon-color: var(--ion-color-primary);
-    width: 60%;
-    height: 5%;
-    --background: white;
-    --radius: 30px;
-    color: black;
-  display: inline-block;
-  font-size: 30px;
-  }
+
    ion-searchbar ion-icon {
     right: 16px !important;
     left: auto !important;
-  
+
   }
 
 
@@ -75,4 +67,49 @@ ion-title{
     &::-webkit-scrollbar {
       display: none; // Safari and Chrome
     }
+}
+
+.popoverCss{
+  --max-height :10px:;
+}
+.ion-card{
+  box-shadow: 10;
+  box-shadow: 10px 5px 5px rgb(188, 200, 255);
+  border: 1 solid;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border: solid 1px;
+  border-color: rgb(212, 212, 212);
+
+}
+
+.cat{
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 4%;
+}
+
+.livreCard{
+  // background-image: url('{{photo}}{{livre.idLivre}}');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
+.imgLivre{
+  width: auto; height: 70%;
+}
+.livrePrix{
+ text-align: center;
+  margin-top: 10px;
+  color: #000;
+  font-weight: 400;
+  font-size: 10px;
+  .ion-badge{
+    width: 90%;
+    opacity: 0.9;
+      color:#6A9BFF;
+      font-size: 8px;
+  }
 }

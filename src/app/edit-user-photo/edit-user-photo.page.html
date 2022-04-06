@@ -1,0 +1,38 @@
+
+
+
+<ion-content (click)="closeModal()">
+</ion-content>
+<ion-footer class="container">
+  <h3 class="title">Profile photo</h3>
+  <ion-grid class="ion-padding-top">
+    <ion-row>
+      <ion-col size="3" class="ion-text-center">
+        <div class="removePhoto">
+          <ion-icon name="trash" class="icon"></ion-icon>
+        </div>
+        <p>
+          Remove <br> photo
+        </p>
+      </ion-col>
+      <ion-col size="3" class="ion-text-center"
+      (click)="startCapture('Photos')">
+       <div class="galleryPhoto">
+          <ion-icon name="images" class="icon"></ion-icon>
+
+       </div>
+       <p>
+         Gallery
+       </p>
+     </ion-col>
+     <ion-col size="3" class="ion-text-center"(click)="startCapture('Camera')" >
+       <div class="cameraPhoto">
+         <ion-icon name="camera" class="icon"></ion-icon>
+       </div>
+       <p>
+         Camera
+       </p>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

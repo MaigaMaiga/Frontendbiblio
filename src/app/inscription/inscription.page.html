@@ -1,41 +1,74 @@
 <ion-header>
- 
+
 </ion-header>
 
 <ion-content>
+<div class="div1">
+  <div class="div2">
+    <img src="/assets/Images/Virtual_biblio2.png" style="width: 300px; height: auto;padding: 20%;">
+ </div>
+</div>
+ <div class="form-section">
+  <form [formGroup]="ionicForm" (ngSubmit)="inscription()" novalidate>
 
-  
-  
-    <form action=""class="form" >
-      <ion-list  class="list">
-        <div class="inputDiv">
-          <ion-label class="label">Nom : </ion-label>
-          <input class="input" name="nom" type="text" [(ngModel)]="nom">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Prenom : </ion-label>
-          <input name="prenom"  type="text" [(ngModel)]="prenom"  class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Email :</ion-label>
-          <input name="email" type="email" [(ngModel)]="email"  class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Identifiant : </ion-label>
-          <input name="identifiant" type="text" [(ngModel)]="identifiant" class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Mot de passe : </ion-label>
-          <input name="password" type="password" [(ngModel)]="password" class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Confirmer : </ion-label>
-          <input name="confirmPassword" type="password" [(ngModel)]="confirmPassword" class="input">
-        </div>
-        <div class="inputDiv"><br>
-      <ion-button  expand="block" (click)="inscription()" shape="round">S'inscrire</ion-button>
-      </div>
-      </ion-list>
-    </form>
-        
+      <ion-item>
+        <ion-input class="input"  type="text" formControlName="nom" placeholder="Nom" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
+        <small>Nom incorrect.</small>
+      </span>
+      <ion-item>
+        <ion-input class="input"  type="text" formControlName="prenom" placeholder="Prénom" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prenom.errors?.required">
+        <small>Prénom incorrect.</small>
+      </span>
+      <ion-item>
+        <ion-input class="input"  type="number"  formControlName="telephone" placeholder="Téléphone" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telephone.errors?.required">
+        <small>Numéro de téléphone incorrect.</small>
+      </span>
+      <ion-item>
+        <ion-input  type="email" formControlName="email" placeholder=" Email" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+        <small>Email incorrect.</small>
+      </span>
+      <ion-item>
+        <ion-input type="text" formControlName="login" placeholder="Nom d'utilisateur" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.login.errors?.required">
+        <small>Login obligatoire.</small>
+      </span>
+      <ion-item>
+        <ion-input  type="password" formControlName="password" placeholder="Mot de passe (8 carracter min)" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required"  >
+        <small>Mot de passe incorrect.</small>
+      </span>
+      <ion-item>
+        <ion-input  type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirmPassword.errors?.required">
+        <small>Confirmation de Mot de passe obligatoire.</small>
+      </span>
+      <br>
+      <div class="logButton" style="padding-bottom: 5%;">
+      <ion-button  type="submit" shape="round" class="but">S'inscrire</ion-button>
+    </div>
+    
+    <!-- <div class="text-tag">
+      <span>Continuer avec</span>
+    </div>
+    <div class="social-btn">
+        <ion-button fill="clear" class="loginbtn ion-no-padding">
+          <ion-img src="../../assets/icon/facebook.png "></ion-img>
+        </ion-button>
+        <ion-button fill="clear" class="loginbtn ion-no-padding">
+          <ion-img src="../../assets/icon/google.png "></ion-img>
+        </ion-button>
+    </div> -->
+  </form>
+ </div>
 </ion-content>

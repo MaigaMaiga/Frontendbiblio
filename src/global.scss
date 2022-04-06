@@ -24,21 +24,26 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-.my-custom-class {
-    --backdrop-opacity: 0.2;
-    width: 250px;
-    height: 300px;
-    margin:  auto;
-    border-radius: 20px;
-    
-    --background: rgb(235, 235, 235);
-  }
 
-  .my-custom-class {
-    .alert-message {
-        margin: auto;
-        width: 120px;
-        height: 540px;
-      }
-  }
- 
+
+
+  .rateIcon{
+    color: rgb(255, 187, 0);
+}
+.but1{
+font-size: 12px;
+width: 70px;
+height: 25px;
+text-transform: initial;
+border-radius: 50px;
+}
+
+.transparent-modal .modal-wrapper {
+  --background: rgba(44, 39, 45, 0.7);
+}
+*:focus{
+  outline:none;
+}
+
+
+

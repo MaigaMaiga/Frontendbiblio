@@ -1,6 +1,8 @@
+import { EbookvuePage } from './../ebookvue/ebookvue.page';
 import { Component, OnInit } from '@angular/core';
 import { DocumentViewer,DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
-
+import { PopoverController } from '@ionic/angular';
+import { ShowLivreComponent } from '../show-livre/show-livre.component';
 @Component({
   selector: 'app-pdfviewer',
   templateUrl: './pdfviewer.page.html',
@@ -8,13 +10,16 @@ import { DocumentViewer,DocumentViewerOptions } from '@awesome-cordova-plugins/d
 })
 export class PdfviewerPage implements OnInit {
 
-  constructor(private document: DocumentViewer) { }
+  constructor(
+    private popCtrl:PopoverController,
+    ) { }
   public options: DocumentViewerOptions = {
     title: 'My PDF'}
 
     
   ngOnInit() {
-    this.document.viewDocument('assets/test.pdf', 'application/pdf', this.options)
+   
 
   }
+
 }

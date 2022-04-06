@@ -10,10 +10,14 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
     implementation project(':capacitor-app')
+    implementation project(':capacitor-browser')
+    implementation project(':capacitor-camera')
     implementation project(':capacitor-haptics')
     implementation project(':capacitor-keyboard')
     implementation project(':capacitor-status-bar')
     implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation "com.stripe:stripe-android:4.1.2"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
 }
 
 

@@ -1,0 +1,42 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Achat livre</ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-row >
+    <ion-col size="12" >
+<ion-card class="topCard">
+  <img src="../../assets/Images/carte.webp">
+</ion-card>
+</ion-col>
+</ion-row>
+<ion-row>
+<ion-col >
+<ion-list style="padding: 5%;">
+  <label for="">Numéro de la Carte  </label>
+  <ion-item>
+<ion-input type="text" placeholder="4334 3425 2738 1201" ></ion-input>
+</ion-item>
+<label for="">Non complet  </label>
+<ion-item>
+<ion-input type="text" placeholder=" John Doe" ></ion-input>
+</ion-item>
+<label for="">Date d'expiration  </label>
+<ion-item>
+<ion-input type="text" placeholder=" 2022 - 12 - 12" ></ion-input>
+</ion-item>
+<label for="">CVC  </label>
+<ion-item>
+<ion-input type="text" placeholder="1234" ></ion-input>
+</ion-item>
+</ion-list>
+</ion-col>
+</ion-row>
+<ion-button expand="block" class="ion-text-center"  type="submit" shape="round" style="text-transform: initial;"><small>Valider (Total :{{livre?.prix | currency:" ":true:"1.0"}} fcfa)</small> </ion-button>
+</ion-content>

@@ -1,28 +1,59 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>audiolecteur</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
-  <div class="img_box">
-    <img src="../../assets/libre_audio.jpg">
-  </div>
+<ion-content >
+  <div class="img_box" style="width: 80%; margin: auto;padding: 5%;" >
 
-  <div id="container">
-    <h2>Chapitre 3</h2>
-    <ion-range min="0" max="100" value="40" mode="md" color="warning"></ion-range>
-    <p>Temps restant: 13m 12s</p>
+    <img src="{{img}}" style="width: 40%; margin-left: 30%;"  >
   </div>
-  <div class="flex_box">
-    <ion-button fill="clear" color="light">
-      <ion-icon slot="icon-only" name="play-back"></ion-icon>
-    </ion-button>
-    <ion-button shape="round" color="light">
-      <ion-icon slot="icon-only" name="pause"></ion-icon>
-    </ion-button>
-    <ion-button fill="clear" color="light">
-      <ion-icon slot="icon-only" name="play-forward"></ion-icon>
-    </ion-button>
-  </div>
+  <h6 style="color: rgb(0, 0, 0); text-align: center;">Titre: {{livre?.titre}}</h6>
+  <h6 style="color: rgb(0, 0, 0); text-align: center;">Auteur: {{livre?.auteur}}</h6>
+  <p style="color: rgb(0, 0, 0); text-align: center;">Catégorie: {{livre?.category.category}}</p>
+
+  <ion-item style="margin-top: 2%;">
+    <audio class="player" controls autoplay style="margin-top: 5%; height: 30px;">
+      <source src="{{audio}}">
+    </audio>
+  </ion-item>
+  <ion-grid>
+    <ion-label color="dark"> <small> Suggestion pour vous</small></ion-label>
+    <ion-row >
+      <ion-col size="12">
+        <ion-slides [options]="slideOptsTwo">
+          <ion-slide *ngFor="let livre of moreLivre">
+            <ion-card  class="ion-card livreCard" (click)="detailLivre(livre.idLivre)">
+              <img src="{{photo}}{{livre.idLivre}} " class="imgLivre">
+              <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
+              <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>
+             <br>
+              <div style="margin: auto;  background-color: #000;opacity: 0.8; width: 90%; ">
+            <span *ngIf="livre?.note >=1" >
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=2">
+              <ion-icon name="star" class="rateIcon"  ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=3">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=4">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=5">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+          </div>
+          </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,93 @@
+
+.libInfo {
+  background: #f1f5f8;
+  padding: 4px 10px 20px 10px;
+  border-radius: 0 0 28px 28px;
+  color: #000000;
+  img{
+    height: 100px;
+  }
+}
+.head{
+  background-color: rgb(188, 200, 255);
+}
+ion-content {
+  background-color: rgb(188, 200, 255);
+      // overwrite inline styles
+      --offset-bottom: auto!important;
+      --overflow: hidden;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+  .slides {
+    background: #f1f5f8;
+    padding: 4px 10px 20px 10px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  ion-card {
+    width: 100%;
+    box-shadow: none;
+    border-radius: 14px;
+    padding: 14px;
+    background: rgba(255,255,255,.8);
+    .main {
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      background: #FFFFFF;
+      box-shadow:  7px 7px 20px #dbdfe2,
+             -7px -7px 20px #ffffff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 40px;
+      }
+
+
+
+    }
+
+    .files {
+        padding-top: 14px;
+    }
+
+  }
+
+  .container {
+    padding: 6px 10px;
+    color: #FFFFFF;
+
+    ion-item {
+      --background: rgba(255,255,255,.1);
+      padding: 0;
+      margin: 14px 0;
+      --border-radius: 14px;
+      color: #000000;
+      font-weight: 600;
+
+      ion-label {
+        padding: 6px 0;
+
+        h4 {
+          font-weight: 600;
+          font-size: 16px;
+        }
+        h6 {
+          color: rgba(59, 59, 59, 0.66);
+        }
+      }
+
+    }
+
+    h2 {
+      padding-bottom: 8px;
+    }
+
+  }
+
+}

@@ -1,75 +1,79 @@
-  <ion-toolbar color='primary'>
+<ion-toolbar color="primary">
   <ion-buttons slot="start">
     <ion-menu-button menu="main-menu"></ion-menu-button>
   </ion-buttons>
-  <ion-title>
-    Virtual-Biblio
-  </ion-title>
+  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
 </ion-toolbar>
-<ion-content [fullscreen]="true" >
-
-
-
-
+<ion-content [fullscreen]="true">
+  <div >
   <ion-grid>
-    <ion-row>
-      <ion-col size="12">
+    <ion-row >
 
-        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+        <ion-slides class="head" pager="false" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-          <ion-slide *ngFor="let s of sliderOne.slidesItems">
-            <img src="../../assets/Images/ebook.jpg/">
-            <span class="slide-text">Slide id {{s.id}}</span>
+          <ion-slide *ngFor="let s of slideImg">
+            <img src="../../assets/Images/{{s}}"  >
+            <span class="slide-text">{{s.id}}</span>
           </ion-slide>
         </ion-slides>
 
-      </ion-col>
-
     </ion-row>
-   
   </ion-grid>
-  <div >
-    <span style="color: #000; font-size: 14px;" ><span style="color: #4481FF;">&nbsp;&nbsp;>&nbsp;</span>Rechercher : </span>
-    <ion-searchbar showCancelButton="never"></ion-searchbar>  
-  </div>
-  <div style="margin-top: 12%;" >
-    <span style="color: #4481FF; font-size: 14px;" ><span style="color: #4481FF;">&nbsp;&nbsp;>&nbsp;</span>Explorer : </span>
-  </div>
-    <ion-grid >
-      <ion-row class="u">
-        <ion-col>
-          <ion-card text-center  routerLink="/livre/Ebook" style="background-color: white;border: solid 1px;">
-            <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
-            <ion-img src="../../assets/Images/ebook.png" style="width: 30px; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;"></ion-img>
-            <h4  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; " >Ebook</h4>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card text-center  routerLink="/livre/Audio" style="background-color: white; border: solid 1px;">
-            <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
-            <ion-img src="../../assets/Images/audiobook.png" style="width: 40px; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;"></ion-img>
-            <h4  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; " >Audio Book</h4>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row class="d">
-        <ion-col>
-          <ion-card text-center  routerLink="/" style="background-color: white; border: solid 1px;">
-            <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
-            <ion-img src="../../assets/Images/documents.png" style="width: 40px; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;"></ion-img>
-            <h4  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; " >Documents</h4>
-          </ion-card>
-        </ion-col>
-        <ion-col >
-          <ion-card text-center  routerLink="/" style="background-color: white; border: solid 1px;">
-            <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
-            <ion-img src="../../assets/Images/Librairie.png" style="width: 40px; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;"></ion-img>
-            <h4  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; " >Librairie</h4>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-     
-     
-    </ion-grid>
-  </ion-content >
-  
+</div>
+<div class="content" >
+  <div style="margin-top: 1%; text-align: center; background-color: white; border-radius: 50px;">
+    <span style="color: #030303; font-size: 12px;"><b>Toutes les Catégories</b></span>
+
+
+</div>
+  <ion-grid>
+    <ion-row class="u">
+      <ion-col >
+        <ion-card text-center routerLink="/livre/Ebook" style="background-color: white;border: solid 1px;margin: -1px; width: 100%;">
+          <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
+          <ion-img src="../../assets/Images/ebook1.jpg"
+            style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
+          </ion-img>
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Ebook</h4>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card text-center routerLink="/livre/AudioBook" style="background-color: white; border: solid 1px;margin: -1px; width: 100%;">
+          <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
+          <ion-img src="../../assets/Images/audio1.png"
+            style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
+          </ion-img>
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Audio Book
+          </h4>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="d">
+      <ion-col>
+        <ion-card text-center routerLink="/documents" style="background-color: white; border: solid 1px;margin: -1px; width: 100%;">
+          <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
+          <ion-img src="../../assets/Images/document1.jpg"
+            style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px; ">
+          </ion-img>
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Documents
+          </h4>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card text-center routerLink="/library" style="background-color: white; border: solid 1px;margin: -1px;width: 100%;">
+          <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
+          <ion-img src="../../assets/Images/book3.jpg"
+            style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
+          </ion-img>
+          <h4 style="text-align: center; margin-top: 14px; color: #000; font-weight: 600; font-size: 14px; ">Librairie
+          </h4>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</div >
+</ion-content>
